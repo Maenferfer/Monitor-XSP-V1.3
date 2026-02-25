@@ -37,7 +37,7 @@ def obtener_datos():
     vals = {}
     for k, v in tickers.items():
         try:
-            df = yf.Ticker(v).history(period="2d", interval="1m")
+            df = yf.Ticker(v).history(period="1d", interval="1m")
             if not df.empty:
                 vals[k] = {"actual": df['Close'].iloc[-1], "apertura": df['Open'].iloc[0]}
             else:
